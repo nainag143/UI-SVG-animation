@@ -1,0 +1,51 @@
+<div class="line3 kamma8">
+		<svg class="sv3 kamma9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 220" width="50" height="330">
+		<linearGradient id="gradient2" x1="" x2="" y1="1" y2="">			     
+			 <stop offset="1%" stop-color="#D37067"></stop>
+			 <stop offset="99%" stop-color="#365dcb"></stop>
+		</linearGradient>
+		<path class="mypath3" id="mypath3" fill="transparent" stroke="url(#gradient2)" stroke-width="2" d="M5 20 H6 V600 " style="stroke-dasharray: 581; stroke-dashoffset: -724;"></path>
+		</svg>
+	</div>
+  
+  
+  <script>
+$( document ).ready(function() {
+
+	
+  
+	   $( window ).scroll(function() {	   	   
+	   
+		  var scpos = $(this).scrollTop();
+		 
+		  //-------------
+		  
+		if(scpos > 700){		
+					
+						
+						//alert();
+					
+							// Get the id of the <path> element and the length of <path>
+						var mypath3 = document.getElementById("mypath3");
+						var length = mypath3.getTotalLength();
+
+						// The start position of the drawing
+						mypath3.style.strokeDasharray = length;
+
+						// Hide the triangle by offsetting dash. Remove this line to show the triangle before scroll draw
+						mypath3.style.strokeDashoffset = length;
+
+						// Find scroll percentage on scroll (using cross-browser properties), and offset dash same amount as percentage scrolled
+						window.addEventListener("scroll", myFunction);
+
+						function myFunction() {					 
+
+						  var draw = length + scpos+700; //scrollpercent;					  
+
+						  // Reverse the drawing (when scrolling upwards)
+						  mypath3.style.strokeDashoffset = length - (scpos+100);
+						}					
+					
+				  }
+		  }
+      </script>
